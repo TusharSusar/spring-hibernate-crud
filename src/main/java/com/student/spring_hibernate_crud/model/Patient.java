@@ -7,23 +7,27 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table
+@Table(name = "patient")
 public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "pid")
     private int pid;
 
-    @Column
+    @Column(name = "pname",length = 80,unique = true,nullable = false)
     private String pname;
-    @Column
+
+    @Column(name = "dischargedAt")
     private LocalDateTime dischargedAt;
-    @Column
+
+    @Column(name = "admittedAt")
     private LocalDateTime admittedAt;
-    @Column
+
+    @Column(name = "treatedBy")
     private String treatedBy;
-    @Column
+
+    @Column(name = "cost")
     private long cost;
 
     public Patient(String pname, LocalDateTime dischargedAt, LocalDateTime admittedAt, String treatedBy, long cost) {
