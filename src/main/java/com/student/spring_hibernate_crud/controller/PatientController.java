@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/patient")
+@CrossOrigin(origins = "http://127.0.0.1:5500/")
 public class PatientController {
 
     @Autowired
@@ -25,8 +26,15 @@ public class PatientController {
     }
 
     @PostMapping("/add")
-    public void addPatient (Patient patient) {
+    public String addPatient (Patient patient) {
+        System.out.println(patient);
         patientService.addPetient(patient);
+        return "Inserted Successfully...";
+    }
+
+    @PutMapping("/update")
+    public void updateByID (@RequestBody Patient updatedPatient) {
+        patientService.updatePatientById(updatedPatient.getPid(),updatedPatient);
     }
 
 }
