@@ -25,4 +25,9 @@ public class PatientService {
         return patientDAO.getPatientByID(pid);
     }
 
+    public void updatePatientById (int pid,Patient updatedPatient) {
+        System.out.println(pid);
+        patientDAO.updateUserByID(pid,updatedPatient);
+    }
+
 }
